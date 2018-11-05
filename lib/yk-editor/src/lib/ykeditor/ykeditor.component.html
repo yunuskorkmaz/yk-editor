@@ -1,0 +1,75 @@
+<div class="main-container" #mainContainer>
+  <div class="toolbar">
+    <button (click)="insertContent('undo')">
+      <i class="fa fa-undo"></i>
+    </button>
+    <button (click)="insertContent('redo')">
+      <i class="fa fa-repeat"></i>
+    </button>
+    <span class="sparator"></span>
+    <button (click)="insertContent('bold')">
+      <i class="fa fa-bold"></i>
+    </button>
+    <button (click)="insertContent('italic')">
+      <i class="fa fa-italic"></i>
+    </button>
+
+    <button (click)="insertContent('strikethrough')">
+      <i class="fa fa-strikethrough"></i>
+    </button>
+    <span class="sparator"></span>
+    <button (click)="insertContent('link')">
+      <i class="fa fa-link"></i>
+    </button>
+    <button (click)="insertContent('image')">
+      <i class="fa fa-picture-o"></i>
+    </button>
+    <span class="sparator"></span>
+    <button (click)="insertContent('code')">
+      <i class="fa fa-code"></i>
+    </button>
+    <button (click)="insertContent('inline-code')">
+      <i class="fa fa-terminal"></i>
+    </button>
+    <button (click)="insertContent('list')">
+      <i class="fa fa-list-ul"></i>
+    </button>
+    <button (click)="insertContent('todo-x')">
+      <i class="fa fa-check-square-o"></i>
+    </button>
+    <button (click)="insertContent('todo-o')">
+      <i class="fa fa-square-o"></i>
+    </button>
+    <span class="sparator"></span>
+    <button (click)="changeTheme()">
+      <i class="fa" [ngClass]="{'fa-moon-o': theme, 'fa-sun-o': !theme}"></i>
+    </button>
+    <button (click)="changeLayout('fullscreen')">
+      <i class="fa fa-arrows-alt"></i>
+    </button>
+
+    <div class="btn-group">
+      <button (click)="changeLayout('edit')" [ngClass]="{'active': displayMode == 'edit'}">
+        <i class="fa fa-pencil-square-o"></i>
+      </button>
+      <button (click)="changeLayout('split')" [ngClass]=" {'active': displayMode=='split' }">
+        <i class="fa fa-columns"></i>
+      </button>
+      <button (click)="changeLayout('preview')" [ngClass]="{'active': displayMode == 'preview'}">
+        <i class="fa fa-eye"></i>
+      </button>
+    </div>
+
+  </div>
+  <div class="editor-container">
+    <div class="editor" #editorContainer>
+      <div class="monaco-editor" #editorhost></div>
+    </div>
+
+    <div class="preview" #previewContainer [ngClass]="{'light': theme, 'dark':!theme}">
+      <div markdown [markdowntext]="content" class="rendered-markdown">
+
+      </div>
+    </div>
+  </div>
+</div>

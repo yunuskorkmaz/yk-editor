@@ -1,0 +1,149 @@
+@import "../../../node_modules/highlight.js/styles/default";
+
+@import "../../../node_modules/monaco-editor/min/vs/editor/editor.main";
+@import "font-awesome";
+yk-editor {
+     display: flex;
+     height: 100%;
+     align-self: stretch;
+     justify-content: stretch;
+     flex-direction: column;
+    .main-container {
+        background: #fff;
+    display: flex;
+    height: 100%;
+    align-self: stretch;
+    justify-content: stretch;
+    flex-direction: column;
+
+    .monaco-editor{
+        height: 100%!important;
+        width: 100%!important;
+        min-width: 99.99%;
+    }
+    .toolbar{
+        height: 35px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),0 1px 1px 1px rgba(0, 0, 0, 0.16);
+        z-index: 100;
+        
+        
+        button{
+            color: #222;
+            height: 35px;
+            width: 35px;
+            line-height: 1;
+            margin: 0 2px;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 0.2s ease 0s;
+            
+            &:hover{
+                background: #ebebeb;
+            }
+            &:hover:active{
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            i{
+                font-size: 14px;
+            }
+        }
+
+        .sparator{
+            height: 35px;
+            width: 1px;;
+            border-left: 1px solid #ebebeb;
+            
+        }
+
+        .btn-group{
+            display: inline;
+            float: right;
+
+            justify-self: flex-end;
+            
+
+           button{
+               margin: 0;
+           }
+
+            button.active {
+              background: #eee;
+            }
+        }
+    }
+    .editor-container,.editor-container.split{
+        display: flex;
+        align-self: stretch;
+        height: 100%;
+        flex-direction: row;
+        overflow: hidden;
+        padding-top: 2px;
+        .preview{
+            
+            overflow-y: auto;
+            border-left: 1px solid #efefef;
+            .rendered-markdown{
+                margin: 0 10px;
+            }
+        }
+        .editor{
+            margin-left: -1px;
+        }
+
+        & > *{
+         max-width: 50%;
+         min-width: 50%;
+        
+        }
+    }
+    .editor-container.edit{
+        .preview{
+            display: none;
+        }
+        .editor{
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+    .editor-container.preview {
+      .editor {
+        display: none;
+      }
+      .preview{
+         max-width: 100%;
+         min-width: 100%;
+         border: none;
+      }
+    }
+
+    .preview.dark{
+        border : #333;
+    }
+
+    .preview{
+        height: 100%;
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: 100%;
+          line-height: 1.5;
+          color: #333;
+          font-family: -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif,
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol";
+          font-size: 16px;
+          line-height: 1.5;
+          word-wrap: break-word;
+        @import "./markdown-style";
+    }
+}
+}

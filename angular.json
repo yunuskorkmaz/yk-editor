@@ -45,6 +45,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/yk-editor/assets/css/yk-editor.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -137,6 +138,42 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "yk-editor": {
+      "root": "lib/yk-editor",
+      "sourceRoot": "lib/yk-editor/src",
+      "projectType": "library",
+      "prefix": "yk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "lib/yk-editor/tsconfig.lib.json",
+            "project": "lib/yk-editor/ng-package.json"
+           
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "lib/yk-editor/src/test.ts",
+            "tsConfig": "lib/yk-editor/tsconfig.spec.json",
+            "karmaConfig": "lib/yk-editor/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "lib/yk-editor/tsconfig.lib.json",
+              "lib/yk-editor/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
