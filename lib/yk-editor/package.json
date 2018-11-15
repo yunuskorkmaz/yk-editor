@@ -16,7 +16,8 @@
     "highlight.js": "^9.13.1",
     "marked": "^0.5.1",
     "monaco-editor": "^0.14.3",
-    "node-emoji": "^1.8.1"
+    "node-emoji": "^1.8.1",
+    "angular-resize-event": "^0.4.4"
   },
   "devDependencies": {}
 }
