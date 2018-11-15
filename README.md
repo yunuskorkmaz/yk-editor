@@ -1,6 +1,8 @@
 # ngx-yk-editor
 Angular markdown editor based Monaco Editor
 
+[Demo](http://yunuskorkmaz.net/ngx-yk-editor/)
+
 ## Usage
 
 - Install yk-editor
