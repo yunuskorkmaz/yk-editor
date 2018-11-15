@@ -2,67 +2,67 @@
   <div class="toolbar">
     <div>
       <button (click)="insertContent('undo')">
-        <i class="fa fa-undo"></i>
+        <i class="yi undo"></i>
       </button>
       <button (click)="insertContent('redo')">
-        <i class="fa fa-repeat"></i>
+        <i class="yi repeat"></i>
       </button>
       <span class="sparator"></span>
       <button (click)="insertContent('bold')">
-        <i class="fa fa-bold"></i>
+        <i class="yi bold"></i>
       </button>
       <button (click)="insertContent('italic')">
-        <i class="fa fa-italic"></i>
+        <i class="yi italic"></i>
       </button>
 
       <button (click)="insertContent('strikethrough')">
-        <i class="fa fa-strikethrough"></i>
+        <i class="yi strikethrough"></i>
       </button>
       <span class="sparator"></span>
       <button (click)="insertContent('link')">
-        <i class="fa fa-link"></i>
+        <i class="yi link"></i>
       </button>
       <button (click)="insertContent('image')">
-        <i class="fa fa-picture-o"></i>
+        <i class="yi picture-o"></i>
       </button>
       <span class="sparator"></span>
       <button (click)="insertContent('code')">
-        <i class="fa fa-code"></i>
+        <i class="yi code"></i>
       </button>
       <button (click)="insertContent('inline-code')">
-        <i class="fa fa-terminal"></i>
+        <i class="yi terminal"></i>
       </button>
       <button (click)="insertContent('list')">
-        <i class="fa fa-list-ul"></i>
+        <i class="yi list-ul"></i>
       </button>
       <button (click)="insertContent('todo-x')">
-        <i class="fa fa-check-square-o"></i>
+        <i class="yi check-square-o"></i>
       </button>
       <button (click)="insertContent('todo-o')">
-        <i class="fa fa-square-o"></i>
+        <i class="yi square-o"></i>
       </button>
       <span class="sparator"></span>
       <button (click)="changeTheme()">
-        <i class="fa" [ngClass]="{'fa-moon-o': theme, 'fa-sun-o': !theme}"></i>
+        <i class="yi" [ngClass]="{'moon-o': theme, 'sun-o': !theme}"></i>
       </button>
       <button (click)="changeLayout('fullscreen')">
-        <i class="fa fa-arrows-alt"></i>
+        <i class="yi arrows-alt"></i>
       </button>
     </div>
     <div class="btn-group">
       <button (click)="changeLayout('edit')" [ngClass]="{'active': displayMode == 'edit'}">
-        <i class="fa fa-pencil-square-o"></i>
+        <i class="yi pencil-square-o"></i>
       </button>
       <button (click)="changeLayout('split')" [ngClass]=" {'active': displayMode=='split' }">
-        <i class="fa fa-columns"></i>
+        <i class="yi columns"></i>
       </button>
       <button (click)="changeLayout('preview')" [ngClass]="{'active': displayMode == 'preview'}">
-        <i class="fa fa-eye"></i>
+        <i class="yi eye"></i>
       </button>
     </div>
 
   </div>
-  <div (resized)="onResized($event)" class="editor-container">
+  <div (resized)="onResized($event)" #resizeContainer class="editor-container">
     <div (resized)="onResized($event)" class="editor" #editorContainer>
       <div class="monaco-editor" #editorhost></div>
     </div>

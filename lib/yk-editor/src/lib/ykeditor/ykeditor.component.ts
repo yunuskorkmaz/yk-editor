@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { editor, Selection, languages} from 'monaco-editor';
 import emoji from 'node-emoji'
 import { ResizedEvent } from 'angular-resize-event/resized-event';
@@ -8,9 +8,7 @@ import { ResizedEvent } from 'angular-resize-event/resized-event';
   templateUrl: './ykeditor.component.html',
   styleUrls: ['./ykeditor.component.css']
 })
-export class YKEditorComponent implements OnInit {
-
-
+export class YKEditorComponent implements OnInit, AfterViewInit {
   @Input() get content() {
     return this._content;
   }
@@ -27,6 +25,7 @@ export class YKEditorComponent implements OnInit {
   @ViewChild("editorContainer") editorContainer: ElementRef;
   @ViewChild("previewContainer") previewContainer: ElementRef;
   @ViewChild('mainContainer') mainContainer: ElementRef;
+  @ViewChild("resizeContainer") resizeContainer: ElementRef;
   baseEditor: any;
 
   displayMode: string = "split";
@@ -55,6 +54,7 @@ export class YKEditorComponent implements OnInit {
         case 'split':
           this.previewContainer.nativeElement.setAttribute("style", "");
           this.editorContainer.nativeElement.setAttribute("style", "");
+          this.resizeLayout();
           break;
         case 'fullscreen':
 
@@ -71,8 +71,6 @@ export class YKEditorComponent implements OnInit {
 
 
   constructor() {
-    
-
   }
 
   config: any = {
@@ -334,5 +332,16 @@ export class YKEditorComponent implements OnInit {
 
   onResized(event: ResizedEvent): void {
     this.baseEditor.layout();
+    this.resizeLayout();
    }
+  resizeLayout(){
+    var witdh = this.resizeContainer.nativeElement.offsetWidth;
+     this.editorContainer.nativeElement.style.width = (witdh/2)+"px";
+     this.previewContainer.nativeElement.style.width = (witdh / 2) + "px"
+  }
+
+  ngAfterViewInit(): void {
+    this.resizeLayout();
+  }
+
 }
