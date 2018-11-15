@@ -1,6 +1,6 @@
-import { OnInit, ElementRef, EventEmitter } from '@angular/core';
+import { OnInit, ElementRef, EventEmitter, AfterViewInit } from '@angular/core';
 import { ResizedEvent } from 'angular-resize-event/resized-event';
-export declare class YKEditorComponent implements OnInit {
+export declare class YKEditorComponent implements OnInit, AfterViewInit {
     content: string;
     contentChange: EventEmitter<{}>;
     _content: string;
@@ -8,6 +8,7 @@ export declare class YKEditorComponent implements OnInit {
     editorContainer: ElementRef;
     previewContainer: ElementRef;
     mainContainer: ElementRef;
+    resizeContainer: ElementRef;
     baseEditor: any;
     displayMode: string;
     isFullScreen: boolean;
@@ -22,4 +23,6 @@ export declare class YKEditorComponent implements OnInit {
     listBasedInsertText(type: any, fill?: boolean): void;
     insertContent(type: any): void;
     onResized(event: ResizedEvent): void;
+    resizeLayout(): void;
+    ngAfterViewInit(): void;
 }
