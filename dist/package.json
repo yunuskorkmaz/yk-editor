@@ -1,0 +1,33 @@
+{
+  "name": "yk-editor",
+  "version": "1.0.0",
+  "author": {
+    "name": "Yunus Korkmaz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunuskorkmaz/ngx-yk-editor.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "dependencies": {
+    "highlight.js": "^9.13.1",
+    "marked": "^0.5.1",
+    "monaco-editor": "^0.14.3",
+    "node-emoji": "^1.8.1",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {},
+  "main": "bundles/yk-editor.umd.js",
+  "module": "fesm5/yk-editor.js",
+  "es2015": "fesm2015/yk-editor.js",
+  "esm5": "esm5/yk-editor.js",
+  "esm2015": "esm2015/yk-editor.js",
+  "fesm5": "fesm5/yk-editor.js",
+  "fesm2015": "fesm2015/yk-editor.js",
+  "typings": "yk-editor.d.ts",
+  "metadata": "yk-editor.metadata.json",
+  "sideEffects": false
+}

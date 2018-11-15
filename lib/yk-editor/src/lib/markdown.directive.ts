@@ -26,7 +26,7 @@ export class MarkdownDirective {
 
   constructor(private el: ElementRef, private sanitize: DomSanitizer, private render2: Renderer2) {
     this.markedRenderer();
-    this.renderMarkdown("# yunus");
+    this.renderMarkdown("");
   }
 
 

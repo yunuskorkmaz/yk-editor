@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter, OnChanges, SimpleChanges, KeyValueDiffers, DoCheck } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { editor, Selection, languages} from 'monaco-editor';
 import emoji from 'node-emoji'
+import { ResizedEvent } from 'angular-resize-event/resized-event';
 
 @Component({
   selector: 'yk-editor',
@@ -58,8 +59,6 @@ export class YKEditorComponent implements OnInit {
         case 'fullscreen':
 
           this.isFullScreen = !this.isFullScreen;
-          console.log(this.isFullScreen);
-
           if (this.isFullScreen == true)
             this.mainContainer.nativeElement.setAttribute('style', "position: fixed;top: 0px;left: 0;bottom: 0;right: 0;width: 100%;height: 100%;");
           else
@@ -72,7 +71,7 @@ export class YKEditorComponent implements OnInit {
 
 
   constructor() {
-
+    
 
   }
 
@@ -84,6 +83,7 @@ export class YKEditorComponent implements OnInit {
     theme: this.theme ? 'vs' : 'vs-dark',
     scrollBeyondLastLine: false,
     wordWrap: 'on',
+    glyphMargin: false
   }
 
 
@@ -218,7 +218,10 @@ export class YKEditorComponent implements OnInit {
       }
     });
 
-
+    this.baseEditor.updateOptions({
+      glyphMargin : false
+    });
+    
   }
 
   charRepeatBasedInsertText(char, aftercharnewLine = false, line = 0) {
@@ -329,5 +332,7 @@ export class YKEditorComponent implements OnInit {
     }
   }
 
-
+  onResized(event: ResizedEvent): void {
+    this.baseEditor.layout();
+   }
 }

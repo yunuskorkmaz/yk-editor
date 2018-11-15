@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { YkEditorModule } from 'yk-editor';
+import { YkEditorModule } from '../../lib/yk-editor/src/';
 
 @NgModule({
   declarations: [
