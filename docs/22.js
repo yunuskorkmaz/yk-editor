@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/lua/lua.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/lua/lua.js ***!
-  \**********************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/lua/lua.js":
+/*!************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/lua/lua.js ***!
+  \************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

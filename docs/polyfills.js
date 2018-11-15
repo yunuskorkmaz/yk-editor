@@ -5473,7 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Yunus\TestProjects\GitHub\markdown-editor\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /mnt/e/Yunus/Projects/GitHub/markdown-editor/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

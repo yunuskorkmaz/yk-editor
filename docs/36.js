@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[36],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/razor/razor.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/razor/razor.js ***!
-  \**************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/razor/razor.js":
+/*!****************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/razor/razor.js ***!
+  \****************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

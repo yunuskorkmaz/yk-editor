@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[37],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/redis/redis.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/redis/redis.js ***!
-  \**************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/redis/redis.js":
+/*!****************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/redis/redis.js ***!
+  \****************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

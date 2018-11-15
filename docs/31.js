@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[31],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/powerquery/powerquery.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/powerquery/powerquery.js ***!
-  \************************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/powerquery/powerquery.js":
+/*!**************************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/powerquery/powerquery.js ***!
+  \**************************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

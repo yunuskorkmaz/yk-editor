@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[28],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/pgsql/pgsql.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/pgsql/pgsql.js ***!
-  \**************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/pgsql/pgsql.js":
+/*!****************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/pgsql/pgsql.js ***!
+  \****************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

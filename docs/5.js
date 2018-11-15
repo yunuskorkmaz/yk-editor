@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/apex/apex.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/apex/apex.js ***!
-  \************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/apex/apex.js":
+/*!**************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/apex/apex.js ***!
+  \**************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

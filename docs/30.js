@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[30],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/postiats/postiats.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/postiats/postiats.js ***!
-  \********************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/postiats/postiats.js":
+/*!**********************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/postiats/postiats.js ***!
+  \**********************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

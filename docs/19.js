@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[19],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/java/java.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/java/java.js ***!
-  \************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/java/java.js":
+/*!**************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/java/java.js ***!
+  \**************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

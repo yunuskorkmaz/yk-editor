@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[32],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/powershell/powershell.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/powershell/powershell.js ***!
-  \************************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/powershell/powershell.js":
+/*!**************************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/basic-languages/powershell/powershell.js ***!
+  \**************************************************************************************************/
 /*! exports provided: conf, language */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

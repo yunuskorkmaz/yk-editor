@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js ***!
-  \***************************************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: Position, Range, Location, Color, ColorInformation, ColorPresentation, FoldingRangeKind, FoldingRange, DiagnosticRelatedInformation, DiagnosticSeverity, Diagnostic, Command, TextEdit, TextDocumentEdit, WorkspaceEdit, WorkspaceChange, TextDocumentIdentifier, VersionedTextDocumentIdentifier, TextDocumentItem, MarkupKind, MarkupContent, CompletionItemKind, InsertTextFormat, CompletionItem, CompletionList, MarkedString, Hover, ParameterInformation, SignatureInformation, DocumentHighlightKind, DocumentHighlight, SymbolKind, SymbolInformation, DocumentSymbol, CodeActionKind, CodeActionContext, CodeAction, CodeLens, FormattingOptions, DocumentLink, EOL, TextDocument, TextDocumentSaveReason */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1420,18 +1420,18 @@ var Is;
 
 /***/ }),
 
-/***/ "./node_modules/monaco-editor/esm/vs/language/html/htmlMode.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/language/html/htmlMode.js ***!
-  \*********************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/htmlMode.js":
+/*!***********************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/htmlMode.js ***!
+  \***********************************************************************************/
 /*! exports provided: setupMode */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setupMode", function() { return setupMode; });
-/* harmony import */ var _workerManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./workerManager.js */ "./node_modules/monaco-editor/esm/vs/language/html/workerManager.js");
-/* harmony import */ var _languageFeatures_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./languageFeatures.js */ "./node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js");
+/* harmony import */ var _workerManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./workerManager.js */ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/workerManager.js");
+/* harmony import */ var _languageFeatures_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./languageFeatures.js */ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js");
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -1465,10 +1465,10 @@ function setupMode(defaults) {
 
 /***/ }),
 
-/***/ "./node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js ***!
-  \*****************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js":
+/*!*******************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/languageFeatures.js ***!
+  \*******************************************************************************************/
 /*! exports provided: DiagnosticsAdapter, CompletionAdapter, DocumentHighlightAdapter, DocumentLinkAdapter, DocumentFormattingEditProvider, DocumentRangeFormattingEditProvider, FoldingRangeAdapter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1481,7 +1481,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentFormattingEditProvider", function() { return DocumentFormattingEditProvider; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentRangeFormattingEditProvider", function() { return DocumentRangeFormattingEditProvider; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FoldingRangeAdapter", function() { return FoldingRangeAdapter; });
-/* harmony import */ var _deps_vscode_languageserver_types_main_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_deps/vscode-languageserver-types/main.js */ "./node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js");
+/* harmony import */ var _deps_vscode_languageserver_types_main_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_deps/vscode-languageserver-types/main.js */ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/_deps/vscode-languageserver-types/main.js");
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -1904,10 +1904,10 @@ function wireCancellationToken(token, promise) {
 
 /***/ }),
 
-/***/ "./node_modules/monaco-editor/esm/vs/language/html/workerManager.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/monaco-editor/esm/vs/language/html/workerManager.js ***!
-  \**************************************************************************/
+/***/ "./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/workerManager.js":
+/*!****************************************************************************************!*\
+  !*** ./lib/yk-editor/node_modules/monaco-editor/esm/vs/language/html/workerManager.js ***!
+  \****************************************************************************************/
 /*! exports provided: WorkerManager */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
