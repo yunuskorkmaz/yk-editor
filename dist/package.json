@@ -1,6 +1,6 @@
 {
   "name": "yk-editor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": {
     "name": "Yunus Korkmaz"
   },
@@ -13,11 +13,11 @@
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   },
   "dependencies": {
+    "angular-resize-event": "^0.4.4",
     "highlight.js": "^9.13.1",
     "marked": "^0.5.1",
     "monaco-editor": "^0.14.3",
     "node-emoji": "^1.8.1",
-    "angular-resize-event": "^0.4.4",
     "tslib": "^1.9.0"
   },
   "devDependencies": {},

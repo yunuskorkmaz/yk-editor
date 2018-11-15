@@ -155,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ykeditor_ykeditor_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ykeditor/ykeditor.component */ "./lib/yk-editor/src/lib/ykeditor/ykeditor.component.ts");
 /* harmony import */ var _markdown_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./markdown.directive */ "./lib/yk-editor/src/lib/markdown.directive.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var angular_resize_event__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-resize-event */ "./node_modules/angular-resize-event/angular-resize-event.umd.js");
+/* harmony import */ var angular_resize_event__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-resize-event */ "./lib/yk-editor/node_modules/angular-resize-event/angular-resize-event.umd.js");
 /* harmony import */ var angular_resize_event__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular_resize_event__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -237,7 +237,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var YKEditorComponent = /** @class */ (function () {
-    function YKEditorComponent() {
+    function YKEditorComponent(el) {
+        this.el = el;
         this.contentChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this._content = "";
         this.displayMode = "split";
@@ -247,9 +248,9 @@ var YKEditorComponent = /** @class */ (function () {
             language: "markdown",
             minimap: { enabled: false },
             lineNumbers: "off",
-            theme: this.theme ? 'vs' : 'vs-dark',
+            theme: this.theme ? "vs" : "vs-dark",
             scrollBeyondLastLine: false,
-            wordWrap: 'on',
+            wordWrap: "on",
             glyphMargin: false
         };
     }
@@ -272,25 +273,29 @@ var YKEditorComponent = /** @class */ (function () {
         if (this.displayMode != type || type == "fullscreen") {
             this.displayMode = type;
             switch (type) {
-                case 'edit':
+                case "edit":
                     this.previewContainer.nativeElement.setAttribute("style", "display : none");
                     this.editorContainer.nativeElement.setAttribute("style", "min-width : 100%;max-width : 100%");
                     break;
-                case 'preview':
+                case "preview":
                     this.editorContainer.nativeElement.setAttribute("style", "display : none");
                     this.previewContainer.nativeElement.setAttribute("style", "min-width : 100%;max-width : 100%");
                     break;
-                case 'split':
+                case "split":
                     this.previewContainer.nativeElement.setAttribute("style", "");
                     this.editorContainer.nativeElement.setAttribute("style", "");
                     this.resizeLayout();
                     break;
-                case 'fullscreen':
+                case "fullscreen":
                     this.isFullScreen = !this.isFullScreen;
-                    if (this.isFullScreen == true)
-                        this.mainContainer.nativeElement.setAttribute('style', "position: fixed;top: 0px;left: 0;bottom: 0;right: 0;width: 100%;height: 100%;");
-                    else
-                        this.mainContainer.nativeElement.setAttribute('style', "");
+                    if (this.isFullScreen == true) {
+                        this.mainContainer.nativeElement.setAttribute("style", "position: fixed;top: 0px;left: 0;bottom: 0;right: 0;width: 100%;height: 100%;");
+                        this.resizeLayout();
+                    }
+                    else {
+                        this.mainContainer.nativeElement.setAttribute("style", "");
+                        this.resizeLayout();
+                    }
                     break;
             }
             this.baseEditor.layout();
@@ -299,129 +304,137 @@ var YKEditorComponent = /** @class */ (function () {
     YKEditorComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.baseEditor = monaco_editor__WEBPACK_IMPORTED_MODULE_1__["editor"].create(this.host.nativeElement, this.config);
-        this.baseEditor.setModel(monaco_editor__WEBPACK_IMPORTED_MODULE_1__["editor"].createModel(this.content, 'markdown'));
+        this.baseEditor.setModel(monaco_editor__WEBPACK_IMPORTED_MODULE_1__["editor"].createModel(this.content, "markdown"));
         this.baseEditor.onDidChangeModelContent(function (e) {
             _this.content = _this.baseEditor.getValue();
         });
         var emojilist = [];
         for (var k in node_emoji__WEBPACK_IMPORTED_MODULE_2___default.a.emoji) {
-            emojilist.push({ label: k + " " + node_emoji__WEBPACK_IMPORTED_MODULE_2___default.a.emoji[k], kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Function, insertText: k + ":" });
+            emojilist.push({
+                label: k + " " + node_emoji__WEBPACK_IMPORTED_MODULE_2___default.a.emoji[k],
+                kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Function,
+                insertText: k + ":"
+            });
         }
-        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].registerCompletionItemProvider('markdown', {
+        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].registerCompletionItemProvider("markdown", {
             provideCompletionItems: function (model, position) {
-                var textUntilPosition = model.getValueInRange({ startLineNumber: position.lineNumber, startColumn: position.column - 1, endLineNumber: position.lineNumber, endColumn: position.column });
-                if (textUntilPosition === ':') {
+                var textUntilPosition = model.getValueInRange({
+                    startLineNumber: position.lineNumber,
+                    startColumn: position.column - 1,
+                    endLineNumber: position.lineNumber,
+                    endColumn: position.column
+                });
+                if (textUntilPosition === ":") {
                     return emojilist;
                 }
                 return [];
             },
-            triggerCharacters: [':']
+            triggerCharacters: [":"]
         });
-        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].setLanguageConfiguration('markdown', {
+        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].setLanguageConfiguration("markdown", {
             onEnterRules: [
                 {
                     beforeText: /^[-]\s(.*)/,
-                    action: { appendText: '- ', indentAction: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].IndentAction.None }
+                    action: {
+                        appendText: "- ",
+                        indentAction: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].IndentAction.None
+                    }
                 }
             ]
         });
-        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].registerCompletionItemProvider('markdown', {
+        monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].registerCompletionItemProvider("markdown", {
             provideCompletionItems: function () {
                 return [
                     {
-                        label: 'h1',
+                        label: "h1",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '# ${1:text}'
+                            value: "# ${1:text}"
                         }
                     },
                     {
-                        label: 'h2',
+                        label: "h2",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '## ${1:text}'
+                            value: "## ${1:text}"
                         }
                     },
                     {
-                        label: 'h3',
+                        label: "h3",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '### ${1:text}'
+                            value: "### ${1:text}"
                         }
                     },
                     {
-                        label: 'h4',
+                        label: "h4",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '#### ${1:text}'
+                            value: "#### ${1:text}"
                         }
                     },
                     {
-                        label: 'h5',
+                        label: "h5",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '##### ${1:text}'
+                            value: "##### ${1:text}"
                         }
                     },
                     {
-                        label: 'h6',
+                        label: "h6",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '###### ${1:text}'
+                            value: "###### ${1:text}"
                         }
                     },
                     {
-                        label: 'code',
+                        label: "code",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Snippet,
                         insertText: {
-                            value: [
-                                '```',
-                                '${1:code}',
-                                '```',
-                            ].join('\n')
+                            value: ["```", "${1:code}", "```"].join("\n")
                         },
-                        documentation: 'If-Else Statement'
+                        documentation: "If-Else Statement"
                     },
                     {
-                        label: 'link',
+                        label: "link",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '[${1:linkText}](${2:url})'
+                            value: "[${1:linkText}](${2:url})"
                         }
                     },
                     {
-                        label: 'image',
+                        label: "image",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '![${1:altText}](${2:url})'
+                            value: "![${1:altText}](${2:url})"
                         }
                     },
                     {
-                        label: 'linkreferance',
+                        label: "linkreferance",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '[${1:name}]: ${2:link}'
+                            value: "[${1:name}]: ${2:link}"
                         }
                     },
                     {
-                        label: 'list',
+                        label: "list",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '\n - ${1:text}'
+                            value: "\n - ${1:text}"
                         }
                     },
                     {
-                        label: 'todo un check',
+                        label: "todo un check",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '\n - [ ] ${2:text}'
+                            value: "\n - [ ] ${2:text}"
                         }
                     },
                     {
-                        label: 'todo check',
+                        label: "todo check",
                         kind: monaco_editor__WEBPACK_IMPORTED_MODULE_1__["languages"].CompletionItemKind.Keyword,
                         insertText: {
-                            value: '\n - [x] ${2:text}'
+                            value: "\n - [x] ${2:text}"
                         }
                     }
                 ];
@@ -443,12 +456,12 @@ var YKEditorComponent = /** @class */ (function () {
         var startchar = this.baseEditor.getModel().getValueInRange(beforeselection);
         var endchar = this.baseEditor.getModel().getValueInRange(afterselection);
         if (startchar == char && endchar == char) {
-            this.baseEditor.executeEdits('', [{ range: afterselection, text: '' }]);
-            this.baseEditor.executeEdits('', [{ range: beforeselection, text: '' }]);
+            this.baseEditor.executeEdits("", [{ range: afterselection, text: "" }]);
+            this.baseEditor.executeEdits("", [{ range: beforeselection, text: "" }]);
         }
         else {
-            text = "" + (aftercharnewLine == true ? '\n' : '') + char + (aftercharnewLine == true ? '\n' : '') + text + (aftercharnewLine == true ? '\n' : '') + char;
-            this.baseEditor.executeEdits('', [{ range: selection, text: text }]);
+            text = "" + (aftercharnewLine == true ? "\n" : "") + char + (aftercharnewLine == true ? "\n" : "") + text + (aftercharnewLine == true ? "\n" : "") + char;
+            this.baseEditor.executeEdits("", [{ range: selection, text: text }]);
             this.baseEditor.setSelection({
                 startColumn: selection.startColumn + (line == 0 ? count : 0),
                 endColumn: selection.endColumn + (line == 0 ? count : 0),
@@ -464,7 +477,7 @@ var YKEditorComponent = /** @class */ (function () {
         var selection = this.baseEditor.getSelection();
         var text = this.baseEditor.getModel().getValueInRange(selection);
         var newText = extrachar + "[" + text + "]()";
-        this.baseEditor.executeEdits('', [{ range: selection, text: newText }]);
+        this.baseEditor.executeEdits("", [{ range: selection, text: newText }]);
         this.baseEditor.setPosition({
             lineNumber: selection.endLineNumber,
             column: selection.endColumn + count
@@ -473,54 +486,54 @@ var YKEditorComponent = /** @class */ (function () {
     };
     YKEditorComponent.prototype.listBasedInsertText = function (type, fill) {
         if (fill === void 0) { fill = false; }
-        var extra = type == 'todo' ? fill == true ? '[x]' : '[ ]' : '';
+        var extra = type == "todo" ? (fill == true ? "[x]" : "[ ]") : "";
         var selection = this.baseEditor.getSelection();
         var text = this.baseEditor.getModel().getValueInRange(selection);
         var newText = "\n - " + extra + " " + text + " ";
-        this.baseEditor.executeEdits('', [{ range: selection, text: newText }]);
+        this.baseEditor.executeEdits("", [{ range: selection, text: newText }]);
         this.baseEditor.setPosition({
             lineNumber: selection.endLineNumber + 1,
-            column: type == 'todo' ? 8 : 4
+            column: type == "todo" ? 8 : 4
         });
         this.baseEditor.focus();
     };
     YKEditorComponent.prototype.insertContent = function (type) {
         switch (type) {
-            case 'bold':
+            case "bold":
                 this.charRepeatBasedInsertText("**");
                 break;
-            case 'italic':
+            case "italic":
                 this.charRepeatBasedInsertText("*");
                 break;
-            case 'strikethrough':
+            case "strikethrough":
                 this.charRepeatBasedInsertText("~~");
                 break;
-            case 'link':
+            case "link":
                 this.linkBasedInsertText("link");
                 break;
-            case 'image':
+            case "image":
                 this.linkBasedInsertText("image");
                 break;
-            case 'code':
-                this.charRepeatBasedInsertText('```', true, +1);
+            case "code":
+                this.charRepeatBasedInsertText("```", true, +1);
                 break;
-            case 'inline-code':
-                this.charRepeatBasedInsertText('`');
+            case "inline-code":
+                this.charRepeatBasedInsertText("`");
                 break;
-            case 'undo':
+            case "undo":
                 this.baseEditor.trigger("", "undo", "");
                 break;
-            case 'redo':
-                this.baseEditor.trigger('', 'redo', '');
+            case "redo":
+                this.baseEditor.trigger("", "redo", "");
                 break;
-            case 'list':
-                this.listBasedInsertText('link');
+            case "list":
+                this.listBasedInsertText("link");
                 break;
-            case 'todo-x':
-                this.listBasedInsertText('todo', true);
+            case "todo-x":
+                this.listBasedInsertText("todo", true);
                 break;
-            case 'todo-o':
-                this.listBasedInsertText('todo', false);
+            case "todo-o":
+                this.listBasedInsertText("todo", false);
                 break;
         }
     };
@@ -530,8 +543,8 @@ var YKEditorComponent = /** @class */ (function () {
     };
     YKEditorComponent.prototype.resizeLayout = function () {
         var witdh = this.resizeContainer.nativeElement.offsetWidth;
-        this.editorContainer.nativeElement.style.width = (witdh / 2) + "px";
-        this.previewContainer.nativeElement.style.width = (witdh / 2) + "px";
+        this.editorContainer.nativeElement.style.width = witdh / 2 + "px";
+        this.previewContainer.nativeElement.style.width = witdh / 2 + "px";
     };
     YKEditorComponent.prototype.ngAfterViewInit = function () {
         this.resizeLayout();
@@ -558,7 +571,7 @@ var YKEditorComponent = /** @class */ (function () {
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
     ], YKEditorComponent.prototype, "previewContainer", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('mainContainer'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("mainContainer"),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
     ], YKEditorComponent.prototype, "mainContainer", void 0);
     __decorate([
@@ -567,11 +580,11 @@ var YKEditorComponent = /** @class */ (function () {
     ], YKEditorComponent.prototype, "resizeContainer", void 0);
     YKEditorComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'yk-editor',
+            selector: "yk-editor",
             template: __webpack_require__(/*! ./ykeditor.component.html */ "./lib/yk-editor/src/lib/ykeditor/ykeditor.component.html"),
             styles: [__webpack_require__(/*! ./ykeditor.component.css */ "./lib/yk-editor/src/lib/ykeditor/ykeditor.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], YKEditorComponent);
     return YKEditorComponent;
 }());

@@ -1,6 +1,7 @@
 import { OnInit, ElementRef, EventEmitter, AfterViewInit } from '@angular/core';
 import { ResizedEvent } from 'angular-resize-event/resized-event';
 export declare class YKEditorComponent implements OnInit, AfterViewInit {
+    private el;
     content: string;
     contentChange: EventEmitter<{}>;
     _content: string;
@@ -15,7 +16,7 @@ export declare class YKEditorComponent implements OnInit, AfterViewInit {
     theme: boolean;
     changeTheme(): void;
     changeLayout(type: any): void;
-    constructor();
+    constructor(el: ElementRef);
     config: any;
     ngOnInit(): void;
     charRepeatBasedInsertText(char: any, aftercharnewLine?: boolean, line?: number): void;
