@@ -1,9 +1,16 @@
 {
   "name": "yk-editor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Yunus Korkmaz"
   },
+  "keywords": [
+    "angular",
+    "component",
+    "markdown editor",
+    "monaco editor",
+    "markdown preview"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yunuskorkmaz/ngx-yk-editor.git"
@@ -12,6 +19,7 @@
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   },
+
   "dependencies": {
     "highlight.js": "^9.13.1",
     "marked": "^0.5.1",
